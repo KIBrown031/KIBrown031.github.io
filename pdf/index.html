@@ -25,6 +25,33 @@
         background: #f4f4f4 !important;
         padding: 40px 10px !important;
     }
+
+    @media print {
+        /* 1. Hide the main page body and all its children */
+        body * {
+            visibility: hidden;
+        }
+
+        /* 2. Force only the document container and its elements to show */
+        #document-container, #document-container * {
+            visibility: visible;
+        }
+
+        /* 3. Position the document perfectly at the top-left of the print paper */
+        #document-container {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 4. Strip browser-generated header text, URLs, and dates */
+        @page {
+            margin: 0;
+        }
+    }
   </style>
 
 
