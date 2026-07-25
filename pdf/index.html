@@ -95,6 +95,10 @@
   </ul>
   
   <button class="mybutton" onclick="document.getElementById('document-container').innerHTML = ''; document.querySelector('ul').style.display = ''; ">Close DOC</button>
+  <!-- Hidden iframe holding your file -->
+  <iframe id="file-printer" src="/pdf/Zoom Logins.pdf" style="display:none;"></iframe>
+
+  <button onclick="printExternalFile()">Print File</button>
 
   <div id="document-container"></div>
 
@@ -171,6 +175,17 @@
           }
           ;
       });
+  </script>
+
+  <!-- print from a hidden <iframe> -->
+  <script>
+    function printExternalFile() {
+        const iframe = document.getElementById('file-printer');
+        
+        // Focus on the iframe frame and call its print method
+        iframe.contentWindow.focus();
+        iframe.contentWindow.print();
+    }
   </script>
     
 </body>
