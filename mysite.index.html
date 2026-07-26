@@ -473,7 +473,7 @@ function emptyCacheHardRelaod() {
 window.addEventListener('contextmenu', (event) => {
 
         // temporary disable
-        console.log("window.addEventListener('contextmenu', (event) => {  DISABLED  }" );
+        console.log("window.addEventListener('contextmenu', (event) => {  1. DISABLED  }" );
         return;
 
         // 1. Prevent the default browser context menu from appearing
@@ -486,6 +486,11 @@ window.addEventListener('contextmenu', (event) => {
         });
 
 document.addEventListener('contextmenu', async (e) => {
+         / temporary disable
+        console.log("window.addEventListener('contextmenu', (event) => { 2. DISABLED  }" );
+        return;
+
+ 
         // Optional: Stop the default browser context menu
         e.preventDefault();
 
