@@ -1,16 +1,28 @@
-<p style="text-align: center">
-  <img src="image/cat.png" style="position: relative">
-</p>
+<!DOCTYPE html>
+<canvas></canvas>
 <script>
-  let cat = document.querySelector("img");
-  let angle = Math.PI / 2;
-  function animate(time, lastTime) {
-    if (lastTime != null) {
-      angle += (time - lastTime) * 0.001;
-    }
-    cat.style.top = (Math.sin(angle) * 20) + "px";
-    cat.style.left = (Math.cos(angle) * 200) + "px";
-    requestAnimationFrame(newTime => animate(newTime, time));
-  }
-  requestAnimationFrame(animate);
+  let cx = document.querySelector("canvas").getContext("2d");
+  let img = document.createElement("img");
+  // img.src = "image/player.png";
+  let spriteW = 24, spriteH = 30;
+  img.addEventListener("load", () => {
+    let cycle = 0;
+    setInterval(() => {
+      cx.clearRect(0, 0, spriteW, spriteH);
+      cx.drawImage(img,
+                   // source rectangle
+                   cycle * spriteW, 0, spriteW, spriteH,
+                   // destination rectangle
+                   0,               0, spriteW, spriteH);
+      cycle = (cycle + 1) % 8;
+    }, 120);
+  });
+
+  img.addEventListener("error", (e) => {
+    console.error("Error: Failed to load the image at:", img.src);
+    console.log("Check if the file path is correct or if you have CORS issues.");
+  });
+
+  // 2. Set the src to trigger the network request
+  img.src = "image/player.png";
 </script>

@@ -133,6 +133,8 @@
       
 
     </div> <!--div class="div-secondlevel"-->
+    
+    <canvas></canvas>
 
   </div></center>
   
@@ -578,6 +580,34 @@ document.addEventListener('contextmenu', async (e) => {
       // $(document).ready(function() { console.log('jQuery We Be Ready: MYSITE.INDEX !!!') } )
       $(function() { console.log('jQuery We Be Ready: MYSITE.INDEX !!!') } );
     </script>
+
+<!--canvas code -->
+  <script>
+    let cx = document.querySelector("canvas").getContext("2d");
+    let img = document.createElement("img");
+    // img.src = "image/player.png";
+    let spriteW = 24, spriteH = 30;
+    img.addEventListener("load", () => {
+      let cycle = 0;
+      setInterval(() => {
+        cx.clearRect(0, 0, spriteW, spriteH);
+        cx.drawImage(img,
+                    // source rectangle
+                    cycle * spriteW, 0, spriteW, spriteH,
+                    // destination rectangle
+                    0,               0, spriteW, spriteH);
+        cycle = (cycle + 1) % 8;
+      }, 120);
+    });
+
+    img.addEventListener("error", (e) => {
+      console.error("Error: Failed to load the image at:", img.src);
+      console.log("Check if the file path is correct or if you have CORS issues.");
+    });
+
+    // 2. Set the src to trigger the network request
+    img.src = "image/player.png";
+  </script>
 
 
 <!-- main list of MANY URLs from initial project -->
