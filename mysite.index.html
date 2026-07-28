@@ -155,7 +155,8 @@
   <br>
   <button class="mybutton" onclick="loadSchedule()">Load Schedule</button>
   
-    
+  <!-- walking man-->
+  <canvas></canvas>    
 
   
   <div id="results"></div> <!-- searchTextFile() -->  <!-- displayURLs()   -->
@@ -167,10 +168,9 @@
   <!--<ul id="result"></ul>-->
   <br><br><br>  <br><br><br>  <br><br><br>
   
-  <!-- walking man -->
-  <canvas></canvas>
 
-  <div class="div-main-image"></div>
+
+  <!-- <div class="div-main-image"></div>  -->
 
   
 <!-- load jquery F I R S T  other code makes use of it-->
@@ -588,8 +588,7 @@ document.addEventListener('contextmenu', async (e) => {
     let cx = document.querySelector("canvas").getContext("2d");
     let img = document.createElement("img");
     // img.src = "image/player.png";
-    // let spriteW = 24, spriteH = 30;
-    let spriteW = 8, spriteH = 10;
+    let spriteW = 24, spriteH = 30;
     img.addEventListener("load", () => {
       let cycle = 0;
       setInterval(() => {
