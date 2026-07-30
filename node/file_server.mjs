@@ -12,7 +12,10 @@ createServer((request, response) => {
     if (body?.pipe) body.pipe(response);
     else response.end(body);
   });
-}).listen(8000);
+}).listen(8000, () => {
+  console.log("Server listening on port: 8000");
+});
+
 
 async function notAllowed(request) {
   return {
