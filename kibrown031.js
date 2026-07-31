@@ -302,7 +302,12 @@ $(document).ready(function() {
         
       });
 
-
+      // added 7/31/2026
+      $(".button-calc").on("click", function() {
+        // alert("CALCULATOR");
+        console.log("CALCULATOR key pressed");
+        window.location.href = "/calculator.html";
+      });
 
 
   
