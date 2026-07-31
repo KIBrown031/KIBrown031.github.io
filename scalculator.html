@@ -156,11 +156,37 @@
         let shouldResetDisplay = false;
 
         // Core Functions
+        /*
         function appendValue(value) {
             if (display.value === '0' || shouldResetDisplay) {
                 resetDisplayState();
             }
             
+            const lastChar = display.value.slice(-1);
+            if (isOperator(value) && isOperator(lastChar)) {
+                return;
+            }
+
+            display.value += value;
+        }
+        */
+
+        function appendValue(value) {
+        // If a calculation just finished
+        if (shouldResetDisplay) {
+            if (isOperator(value)) {
+                // FIX: If starting with an operator, keep the old answer on screen
+                shouldResetDisplay = false; 
+            } else {
+                // If starting with a number, clear the old answer out entirely
+                resetDisplayState();
+            }
+            } else if (display.value === '0' && !isOperator(value)) {
+                // Clear initial zero when a new number sequence begins
+                display.value = '';
+            }
+            
+            // Prevent consecutive double operators (e.g., ++ or *+)
             const lastChar = display.value.slice(-1);
             if (isOperator(value) && isOperator(lastChar)) {
                 return;
