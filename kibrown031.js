@@ -302,14 +302,19 @@ $(document).ready(function() {
         
       });
 
-      // added 7/31/2026
+      // added 7/31/2026  -  Basic Calculator
       $(".button-calc").on("click", function() {
-        // alert("CALCULATOR");
-        console.log("CALCULATOR key pressed");
+        // alert("CALC");
+        console.log("CALC key pressed");
         window.location.href = "/calculator.html";
       });
 
-
+      // added 7/31/2026  -  Scientific Calculator 
+      $(".button-scalc").on("click", function() {
+        // alert("SCI-CALC");
+        console.log("SCI-CALC key pressed");
+        window.location.href = "/scalculator.html";
+      });
   
 });
 

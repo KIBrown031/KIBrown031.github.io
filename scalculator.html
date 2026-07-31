@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Scientific Calculator</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1e1e24;
+        }
+
+        .calculator {
+            background-color: #2d3139;
+            padding: 24px;
+            border-radius: 20px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+            width: 440px;
+        }
+
+        .display-container {
+            background-color: #1b1d22;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 24px;
+        }
+
+        .history {
+            color: #707880;
+            font-size: 0.9rem;
+            text-align: right;
+            height: 20px;
+            overflow: hidden;
+            margin-bottom: 5px;
+        }
+
+        .display {
+            width: 100%;
+            height: 50px;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 2.2rem;
+            text-align: right;
+            outline: none;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            padding: 16px 8px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #3e4451;
+            color: #ffffff;
+            transition: background 0.1s ease, transform 0.05s ease;
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        button.scientific {
+            background-color: #4b5263;
+            color: #61afef;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        button.operator {
+            background-color: #ff9f0a;
+            color: white;
+            font-weight: bold;
+        }
+
+        button.clear {
+            background-color: #e06c75;
+            color: white;
+        }
+
+        button.equal {
+            grid-column: span 2;
+            background-color: #98c379;
+            color: #1e222b;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <div class="display-container">
+            <div id="history" class="history"></div>
+            <input type="text" id="display" class="display" value="0" readonly>
+        </div>
+        
+        <div class="buttons">
+            <!-- Scientific Functions -->
+            <button class="scientific" onclick="scientific('sin')">sin</button>
+            <button class="scientific" onclick="scientific('cos')">cos</button>
+            <button class="scientific" onclick="scientific('tan')">tan</button>
+            <button class="clear" onclick="clearDisplay()">C</button>
+            <button onclick="deleteLast()">⌫</button>
+
+            <button class="scientific" onclick="scientific('ln')">ln</button>
+            <button class="scientific" onclick="scientific('log')">log</button>
+            <button class="scientific" onclick="scientific('pi')">π</button>
+            <button class="scientific" onclick="scientific('e')">e</button>
+            <button onclick="appendValue('/')" class="operator">÷</button>
+
+            <button class="scientific" onclick="scientific('sqrt')">√</button>
+            <button onclick="appendValue('7')">7</button>
+            <button onclick="appendValue('8')">8</button>
+            <button onclick="appendValue('9')">9</button>
+            <button onclick="appendValue('*')" class="operator">×</button>
+
+            <button class="scientific" onclick="scientific('pow2')">x²</button>
+            <button onclick="appendValue('4')">4</button>
+            <button onclick="appendValue('5')">5</button>
+            <button onclick="appendValue('6')">6</button>
+            <button onclick="appendValue('-')" class="operator">−</button>
+
+            <button class="scientific" onclick="scientific('exp')">exp</button>
+            <button onclick="appendValue('1')">1</button>
+            <button onclick="appendValue('2')">2</button>
+            <button onclick="appendValue('3')">3</button>
+            <button onclick="appendValue('+')" class="operator">+</button>
+
+            <!-- Bottom Row -->
+            <button class="scientific" onclick="scientific('abs')">|x|</button>
+            <button onclick="appendValue('0')">0</button>
+            <button onclick="appendValue('.')">.</button>
+            <button onclick="calculate()" class="equal">=</button>
+        </div>
+    </div>
+
+    <script>
+        const display = document.getElementById('display');
+        const history = document.getElementById('history');
+        let shouldResetDisplay = false;
+
+        // Core Functions
+        function appendValue(value) {
+            if (display.value === '0' || shouldResetDisplay) {
+                resetDisplayState();
+            }
+            
+            const lastChar = display.value.slice(-1);
+            if (isOperator(value) && isOperator(lastChar)) {
+                return;
+            }
+
+            display.value += value;
+        }
+
+        function isOperator(char) {
+            return ['+', '-', '*', '/'].includes(char);
+        }
+
+        function resetDisplayState() {
+            display.value = '';
+            shouldResetDisplay = false;
+        }
+
+        function clearDisplay() {
+            display.value = '0';
+            history.innerText = '';
+        }
+
+        function deleteLast() {
+            if (display.value.length > 1) {
+                display.value = display.value.slice(0, -1);
+            } else {
+                display.value = '0';
+            }
+        }
+
+        // Advanced Math Logic
+        function scientific(type) {
+            const currentVal = parseFloat(display.value);
+            if (isNaN(currentVal) && type !== 'pi' && type !== 'e') return;
+
+            let result;
+            let label = '';
+
+            switch (type) {
+                case 'sin':  result = Math.sin(currentVal); label = `sin(${currentVal})`; break;
+                case 'cos':  result = Math.cos(currentVal); label = `cos(${currentVal})`; break;
+                case 'tan':  result = Math.tan(currentVal); label = `tan(${currentVal})`; break;
+                case 'ln':   result = Math.log(currentVal); label = `ln(${currentVal})`; break;
+                case 'log':  result = Math.log10(currentVal); label = `log(${currentVal})`; break;
+                case 'sqrt': result = Math.sqrt(currentVal); label = `√(${currentVal})`; break;
+                case 'pow2': result = Math.pow(currentVal, 2); label = `sqr(${currentVal})`; break;
+                case 'exp':  result = Math.exp(currentVal); label = `exp(${currentVal})`; break;
+                case 'abs':  result = Math.abs(currentVal); label = `abs(${currentVal})`; break;
+                case 'pi':   
+                    if (display.value === '0' || shouldResetDisplay) display.value = '';
+                    display.value += Math.PI.toFixed(8); 
+                    shouldResetDisplay = false;
+                    return;
+                case 'e':    
+                    if (display.value === '0' || shouldResetDisplay) display.value = '';
+                    display.value += Math.E.toFixed(8); 
+                    shouldResetDisplay = false;
+                    return;
+            }
+
+            formatAndDisplay(result, label);
+        }
+
+        function calculate() {
+            try {
+                const expression = display.value;
+                const rawResult = Function(`"use strict"; return (${expression})`)();
+                formatAndDisplay(rawResult, expression);
+            } catch (error) {
+                display.value = 'Error';
+                shouldResetDisplay = true;
+            }
+        }
+
+        function formatAndDisplay(result, historyLabel) {
+            if (result === Infinity || isNaN(result)) {
+                display.value = "Error";
+            } else {
+                history.innerText = historyLabel + " =";
+                display.value = Number(result.toFixed(8)).toString();
+            }
+            shouldResetDisplay = true;
+        }
+
+        // Physical Keyboard Binding
+        window.addEventListener('keydown', (e) => {
+            if (e.key >= '0' && e.key <= '9' || e.key === '.') appendValue(e.key);
+            if (['+', '-', '*', '/'].includes(e.key)) appendValue(e.key);
+            if (e.key === 'Enter' || e.key === '=') calculate();
+            if (e.key === 'Backspace') deleteLast();
+            if (e.key === 'Escape') clearDisplay();
+        });
+    </script>
+</body>
+</html>
