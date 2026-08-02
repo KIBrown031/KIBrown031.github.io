@@ -12,10 +12,7 @@ createServer((request, response) => {
     if (body?.pipe) body.pipe(response);
     else response.end(body);
   });
-}).listen(8000, () => {
-  console.log("Server listening on port: 8000");
-});
-
+}).listen(8000, () => { console.log("Server Listening on port:8000") });
 
 async function notAllowed(request) {
   return {
@@ -27,6 +24,7 @@ async function notAllowed(request) {
 import {resolve, sep} from "node:path";
 
 const baseDirectory = process.cwd();
+console.log(`Base Directory is: ${baseDirectory}`)
 
 function urlPath(url) {
   let {pathname} = new URL(url, "http://d");
