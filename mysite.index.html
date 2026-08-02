@@ -177,7 +177,7 @@
     function handleSubmit(event){
       const form = event.currentTarget;
       fetch( form.action, {
-        method: 'post',
+        method: 'put',
         body: new FormData(form)
       });
       event.preventDefault();
