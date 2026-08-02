@@ -173,8 +173,23 @@
     </form>
   </div>
 
+  <script>
+    function handleSubmit(event){
+      const form = event.currentTarget;
+      fetch( form.action, {
+        method: 'post',
+        body: new FormData(form)
+      });
+      event.preventDefault();
+    }
+    
+    const form = document.querySelector('form');
+    form.addEventListener('submit', handleSubmit);
+  </script>
 
-    <!-- walking man-->
+
+
+  <!-- walking man-->
   <canvas width="30" height="30"></canvas> 
 
 
