@@ -213,6 +213,15 @@
   </div>
 
   <script>
+    // Helper function to clear classes and text after 3 seconds
+    function resetLabelDelayed() {
+      setTimeout(() => {
+        uploadLabel.className = ''; // Removes state classes, reverts to base CSS
+        uploadLabel.textContent = 'Choose File'; // Restores original text
+        fileInput.value = ''; // Clears the file input selection
+      }, 3000); // 3000 milliseconds = 3 seconds
+    }
+
     // send raw file
     function handleSubmit(event) {
     event.preventDefault();
@@ -241,8 +250,8 @@
         if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
         return res.text(); // Use res.text() if the server returns plain text instead of JSON
     })
-    .then(data => {console.log('Success:', data); uploadLabel.className = 'success'; uploadLabel.textContent = 'Upload Success!';})
-    .catch(err => {console.error('Upload Error:', err); uploadLabel.className = 'error'; uploadLabel.textContent = 'Upload Failed!';});
+    .then(data => {console.log('Success:', data); uploadLabel.className = 'success'; uploadLabel.textContent = 'Upload Success!'; resetLabelDelayed();})
+    .catch(err => {console.error('Upload Error:', err); uploadLabel.className = 'error'; uploadLabel.textContent = 'Upload Failed!'; resetLabelDelayed();});
   }
 
     const form = document.getElementById('uploadForm');
