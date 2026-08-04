@@ -72,6 +72,12 @@
         animation: flash-effect 0.5s ease-in-out 3; /* Flashes 3 times */
       }
 
+      label { background-color: #e0e0e0; padding: 10px; display: inline-block; transition: background 0.3s; }
+      label.selected { background-color: #ffeb3b; } /* File chosen */
+      label.uploading { background-color: #2196f3; color: white; } /* During fetch */
+      label.success { background-color: #4caf50; color: white; } /* Upload OK */
+      label.error { background-color: #f44336; color: white; } /* Upload failed */
+
     </style>
     
 </head>
@@ -199,7 +205,7 @@
   <div>
     <!-- Removed traditional action/method attributes to let JavaScript control the layout -->
     <form id="uploadForm">
-      <label for="file">FILE</label>
+      <label id="uploadLabel" for="file">FILE</label>
       <input id="file" name="file" type="file">
       <br><br>
       <button type="submit">Upload</button>
@@ -207,6 +213,41 @@
   </div>
 
   <script>
+    // send raw file
+    function handleSubmit(event) {
+    event.preventDefault();
+    
+    const uploadLabel = document.getElementById('uploadLabel');
+    const fileInput = document.getElementById('file');
+    const file = fileInput.files[0];
+    const filename = file.name; // <--- Gets the bare filename with no path
+    
+    if (!file) {
+        console.error('No file selected');
+        return;
+    }
+
+    // 0. Change background to uploading state
+    uploadLabel.className = 'uploading';
+    uploadLabel.textContent = 'Uploading...';
+
+    // 1. Match the exact URL path used in your curl command
+    fetch(`https://localhost:8000/${filename}`, {
+        method: 'PUT',
+        // 2. Send the raw file directly, matching curl -T
+        body: file 
+    })
+    .then(res => {
+        if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+        return res.text(); // Use res.text() if the server returns plain text instead of JSON
+    })
+    .then(data => {console.log('Success:', data); uploadLabel.className = 'success'; uploadLabel.textContent = 'Upload Success!';})
+    .catch(err => {console.error('Upload Error:', err); uploadLabel.className = 'error'; uploadLabel.textContent = 'Upload Failed!';});
+  }
+
+    const form = document.getElementById('uploadForm');
+    form.addEventListener('submit', handleSubmit);
+    
     /*function handleSubmit(event) {
       event.preventDefault(); // Stop standard browser navigation instantly
       
@@ -229,35 +270,7 @@
     }
     */
 
-    // send raw file
-    function handleSubmit(event) {
-    event.preventDefault();
-    
-    const fileInput = document.getElementById('file');
-    const file = fileInput.files[0];
-    const filename = file.name; // <--- Gets the bare filename with no path
-    
-    if (!file) {
-        console.error('No file selected');
-        return;
-    }
 
-    // 1. Match the exact URL path used in your curl command
-    fetch(`https://localhost:8000/${filename}`, {
-        method: 'PUT',
-        // 2. Send the raw file directly, matching curl -T
-        body: file 
-    })
-    .then(res => {
-        if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
-        return res.text(); // Use res.text() if the server returns plain text instead of JSON
-    })
-    .then(data => console.log('Success:', data))
-    .catch(err => console.error('Upload Error:', err));
-}
-
-    const form = document.getElementById('uploadForm');
-    form.addEventListener('submit', handleSubmit);
   </script>
 
 
