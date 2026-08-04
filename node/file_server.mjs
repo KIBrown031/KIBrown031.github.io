@@ -2,6 +2,36 @@ import {createServer} from "node:http";
 
 const methods = Object.create(null);
 
+
+//const express = require('express');
+//const cors = require('cors');
+//const app = express();
+
+import express from 'express';
+import cors from 'cors';
+
+const app = express();
+
+// 1. Configure CORS options
+const corsOptions = {
+  origin: ['https://localhost:8000', 'http://127.0.0.1:8080'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+  preflightContinue: false // This tells CORS to handle the OPTIONS request for you automatically
+};
+
+// 2. Enable CORS for ALL routes and explicitly handle OPTIONS preflight
+app.use(cors(corsOptions));
+// app.options('*', cors(corsOptions)); 
+
+// 3. Your routes MUST come AFTER the CORS middleware configuration
+app.get('/', (req, res) => {
+  res.json({ message: 'Success! CORS and SSL are working.' });
+});
+
+
+
 createServer((request, response) => {
   let handler = methods[request.method] || notAllowed;
   handler(request).catch(error => {
