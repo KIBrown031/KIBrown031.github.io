@@ -201,6 +201,9 @@
   </script>
   -->
 
+  
+  
+  
   <!-- Upload File to server-->
   <div>
     <!-- Removed traditional action/method attributes to let JavaScript control the layout -->
@@ -214,6 +217,12 @@
 
   <script>
     // Helper function to clear classes and text after 3 seconds
+    const uploadLabel = document.getElementById('uploadLabel');
+    const fileInput = document.getElementById('file');
+    const file = fileInput.files[0];
+    const filename = file.name; // <--- Gets the bare filename with no path
+    
+    
     function resetLabelDelayed() {
       setTimeout(() => {
         uploadLabel.className = ''; // Removes state classes, reverts to base CSS
@@ -226,11 +235,7 @@
     function handleSubmit(event) {
     event.preventDefault();
     
-    const uploadLabel = document.getElementById('uploadLabel');
-    const fileInput = document.getElementById('file');
-    const file = fileInput.files[0];
-    const filename = file.name; // <--- Gets the bare filename with no path
-    
+
     if (!file) {
         console.error('No file selected');
         return;
