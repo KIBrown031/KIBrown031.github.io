@@ -417,3 +417,8 @@ ginx\ssl\server.crt, r) error:10080002:BIO routines::system lib)
 2026/08/04 18:04:58 [warn] 6228#32548: *45 a client request body is buffered to a temporary file C:\nginx/temp/client_body_temp/0000000010, client: 127.0.0.1, server: , request: "PUT /Install%20SanDisk%20Software%20for%20Mac.dmg HTTP/1.1", host: "localhost:8000", referrer: "https://kibrown031.github.io/"
 2026/08/04 18:04:58 [warn] 6228#32548: *45 a client request body is buffered to a temporary file C:\nginx/temp/client_body_temp/0000000010, client: 127.0.0.1, server: , request: "PUT /Install%20SanDisk%20Software%20for%20Mac.dmg HTTP/1.1", host: "localhost:8000", referrer: "https://kibrown031.github.io/"
 2026/08/04 18:05:58 [info] 6228#32548: *47 client timed out (10060: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8000
+2026/08/04 22:31:57 [emerg] 35412#27876: cannot load certificate "C:/nginx/ssl/server.crt": BIO_new_file() failed (SSL: error:80000003:system library::No such process:calling fopen(C:/nginx/ssl/server.crt, r) error:10000080:BIO routines::no such file)
+2026/08/04 22:35:15 [notice] 32888#25000: signal process started
+2026/08/04 22:35:15 [error] 32888#25000: OpenEvent("Global\ngx_reload_19848") failed (2: The system cannot find the file specified)
+2026/08/04 22:36:09 [notice] 24164#34208: signal process started
+2026/08/04 22:36:09 [error] 24164#34208: OpenEvent("Global\ngx_stop_19848") failed (2: The system cannot find the file specified)
