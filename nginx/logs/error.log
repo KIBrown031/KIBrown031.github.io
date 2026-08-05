@@ -422,3 +422,120 @@ ginx\ssl\server.crt, r) error:10080002:BIO routines::system lib)
 2026/08/04 22:35:15 [error] 32888#25000: OpenEvent("Global\ngx_reload_19848") failed (2: The system cannot find the file specified)
 2026/08/04 22:36:09 [notice] 24164#34208: signal process started
 2026/08/04 22:36:09 [error] 24164#34208: OpenEvent("Global\ngx_stop_19848") failed (2: The system cannot find the file specified)
+2026/08/04 22:52:24 [notice] 28232#28216: using the "select" event method
+2026/08/04 22:52:24 [notice] 28232#28216: using the "select" event method
+2026/08/04 22:52:24 [notice] 28232#28216: nginx/1.30.4
+2026/08/04 22:52:24 [notice] 28232#28216: nginx/1.30.4
+2026/08/04 22:52:24 [info] 28232#28216: OS: 260200 build:9200, "", suite:100, type:1
+2026/08/04 22:52:24 [notice] 28232#28216: start worker processes
+2026/08/04 22:52:24 [notice] 28232#28216: start worker processes
+2026/08/04 22:52:24 [notice] 28232#28216: start worker process 12832
+2026/08/04 22:52:24 [notice] 28232#28216: start worker process 12832
+2026/08/04 22:52:24 [notice] 12832#17168: nginx/1.30.4
+2026/08/04 22:52:24 [notice] 12832#17168: nginx/1.30.4
+2026/08/04 22:52:24 [info] 12832#17168: OS: 260200 build:9200, "", suite:100, type:1
+2026/08/04 22:52:24 [notice] 12832#17168: create thread 16316
+2026/08/04 22:52:24 [notice] 12832#17168: create thread 16316
+2026/08/04 22:52:24 [notice] 12832#17168: create thread 15740
+2026/08/04 22:52:24 [notice] 12832#17168: create thread 15740
+2026/08/04 22:52:24 [notice] 12832#17168: create thread 16084
+2026/08/04 22:52:24 [notice] 12832#17168: create thread 16084
+2026/08/04 22:53:53 [notice] 9572#24612: signal process started
+2026/08/04 22:53:53 [notice] 28232#28216: reconfiguring
+2026/08/04 22:53:53 [notice] 28232#28216: reconfiguring
+2026/08/04 22:53:53 [notice] 28232#28216: using the "select" event method
+2026/08/04 22:53:53 [notice] 28232#28216: using the "select" event method
+2026/08/04 22:53:53 [notice] 28232#28216: start worker processes
+2026/08/04 22:53:53 [notice] 28232#28216: start worker processes
+2026/08/04 22:53:53 [notice] 28232#28216: start worker process 24648
+2026/08/04 22:53:53 [notice] 28232#28216: start worker process 24648
+2026/08/04 22:53:53 [notice] 24648#4072: nginx/1.30.4
+2026/08/04 22:53:53 [notice] 24648#4072: nginx/1.30.4
+2026/08/04 22:53:53 [info] 24648#4072: OS: 260200 build:9200, "", suite:100, type:1
+2026/08/04 22:53:53 [notice] 12832#17168: gracefully shutting down
+2026/08/04 22:53:53 [notice] 24648#4072: create thread 3240
+2026/08/04 22:53:53 [notice] 12832#17168: gracefully shutting down
+2026/08/04 22:53:53 [notice] 24648#4072: create thread 3240
+2026/08/04 22:53:53 [notice] 12832#15740: exiting
+2026/08/04 22:53:53 [notice] 12832#15740: exiting
+2026/08/04 22:53:53 [notice] 24648#4072: create thread 21072
+2026/08/04 22:53:53 [notice] 24648#4072: create thread 21072
+2026/08/04 22:53:53 [notice] 24648#4072: create thread 4956
+2026/08/04 22:53:53 [notice] 24648#4072: create thread 4956
+2026/08/04 22:53:53 [notice] 12832#16316: exiting
+2026/08/04 22:53:53 [notice] 12832#16316: exiting
+2026/08/04 22:53:53 [notice] 12832#17168: exit
+2026/08/04 22:53:53 [notice] 12832#17168: exit
+2026/08/04 22:53:53 [notice] 28232#28216: worker process 12832 exited with code 0
+2026/08/04 22:53:53 [notice] 28232#28216: worker process 12832 exited with code 0
+2026/08/04 22:54:14 [warn] 24648#3240: *1 a client request body is buffered to a temporary file C:\Git-Hub\KIBrown031.github.io\nginx/temp/client_body_temp/0000000001, client: 127.0.0.1, server: , request: "PUT /PWSH.iso HTTP/1.1", host: "localhost:8000", referrer: "https://kibrown031.github.io/"
+2026/08/04 22:54:14 [warn] 24648#3240: *1 a client request body is buffered to a temporary file C:\Git-Hub\KIBrown031.github.io\nginx/temp/client_body_temp/0000000001, client: 127.0.0.1, server: , request: "PUT /PWSH.iso HTTP/1.1", host: "localhost:8000", referrer: "https://kibrown031.github.io/"
+2026/08/04 22:55:14 [info] 24648#3240: *2 client timed out (10060: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8000
+2026/08/04 22:57:19 [info] 24648#3240: *6 client timed out (10060: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8000
+2026/08/04 22:57:23 [error] 24648#3240: *7 CreateFile() "C:\Git-Hub\KIBrown031.github.io\nginx/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2026/08/04 22:57:23 [error] 24648#3240: *7 CreateFile() "C:\Git-Hub\KIBrown031.github.io\nginx/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2026/08/04 22:57:23 [error] 24648#3240: *7 CreateFile() "C:\Git-Hub\KIBrown031.github.io\nginx/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2026/08/04 22:58:23 [info] 24648#3240: *8 client timed out (10060: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:80
+2026/08/04 22:58:23 [info] 24648#3240: *9 client timed out (10060: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:80
+2026/08/04 23:07:57 [info] 24648#3240: *12 client timed out (10060: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8000
+2026/08/04 23:13:41 [warn] 15664#19412: conflicting server name "" on 0.0.0.0:8000, ignored
+2026/08/04 23:13:47 [warn] 2384#3352: conflicting server name "" on 0.0.0.0:8000, ignored
+2026/08/04 23:13:47 [notice] 2384#3352: signal process started
+2026/08/04 23:13:47 [notice] 28232#28216: reconfiguring
+2026/08/04 23:13:47 [notice] 28232#28216: reconfiguring
+2026/08/04 23:13:47 [warn] 28232#28216: conflicting server name "" on 0.0.0.0:8000, ignored
+2026/08/04 23:13:47 [warn] 28232#28216: conflicting server name "" on 0.0.0.0:8000, ignored
+2026/08/04 23:13:47 [notice] 28232#28216: using the "select" event method
+2026/08/04 23:13:47 [notice] 28232#28216: using the "select" event method
+2026/08/04 23:13:47 [notice] 28232#28216: start worker processes
+2026/08/04 23:13:47 [notice] 28232#28216: start worker processes
+2026/08/04 23:13:47 [notice] 28232#28216: start worker process 19744
+2026/08/04 23:13:47 [notice] 28232#28216: start worker process 19744
+2026/08/04 23:13:47 [warn] 19744#26728: conflicting server name "" on 0.0.0.0:8000, ignored
+2026/08/04 23:13:47 [notice] 19744#26728: nginx/1.30.4
+2026/08/04 23:13:47 [notice] 19744#26728: nginx/1.30.4
+2026/08/04 23:13:47 [info] 19744#26728: OS: 260200 build:9200, "", suite:100, type:1
+2026/08/04 23:13:47 [notice] 19744#26728: create thread 1468
+2026/08/04 23:13:47 [notice] 24648#4072: gracefully shutting down
+2026/08/04 23:13:47 [notice] 19744#26728: create thread 1468
+2026/08/04 23:13:47 [notice] 24648#4072: gracefully shutting down
+2026/08/04 23:13:47 [notice] 24648#21072: exiting
+2026/08/04 23:13:47 [notice] 24648#21072: exiting
+2026/08/04 23:13:47 [notice] 19744#26728: create thread 27824
+2026/08/04 23:13:47 [notice] 19744#26728: create thread 27824
+2026/08/04 23:13:47 [notice] 19744#26728: create thread 2044
+2026/08/04 23:13:47 [notice] 19744#26728: create thread 2044
+2026/08/04 23:13:47 [notice] 24648#3240: exiting
+2026/08/04 23:13:47 [notice] 24648#3240: exiting
+2026/08/04 23:13:47 [notice] 24648#4072: exit
+2026/08/04 23:13:47 [notice] 24648#4072: exit
+2026/08/04 23:13:47 [notice] 28232#28216: worker process 24648 exited with code 0
+2026/08/04 23:13:47 [notice] 28232#28216: worker process 24648 exited with code 0
+2026/08/04 23:15:34 [notice] 26228#27028: signal process started
+2026/08/04 23:15:34 [notice] 28232#28216: reconfiguring
+2026/08/04 23:15:34 [notice] 28232#28216: reconfiguring
+2026/08/04 23:15:34 [notice] 28232#28216: using the "select" event method
+2026/08/04 23:15:34 [notice] 28232#28216: using the "select" event method
+2026/08/04 23:15:34 [notice] 28232#28216: start worker processes
+2026/08/04 23:15:34 [notice] 28232#28216: start worker processes
+2026/08/04 23:15:34 [notice] 28232#28216: start worker process 16964
+2026/08/04 23:15:34 [notice] 28232#28216: start worker process 16964
+2026/08/04 23:15:34 [notice] 16964#25880: nginx/1.30.4
+2026/08/04 23:15:34 [notice] 16964#25880: nginx/1.30.4
+2026/08/04 23:15:34 [info] 16964#25880: OS: 260200 build:9200, "", suite:100, type:1
+2026/08/04 23:15:34 [notice] 19744#26728: gracefully shutting down
+2026/08/04 23:15:34 [notice] 16964#25880: create thread 27708
+2026/08/04 23:15:34 [notice] 19744#26728: gracefully shutting down
+2026/08/04 23:15:34 [notice] 16964#25880: create thread 27708
+2026/08/04 23:15:34 [notice] 19744#27824: exiting
+2026/08/04 23:15:34 [notice] 19744#27824: exiting
+2026/08/04 23:15:34 [notice] 16964#25880: create thread 27208
+2026/08/04 23:15:34 [notice] 16964#25880: create thread 27208
+2026/08/04 23:15:34 [notice] 16964#25880: create thread 7012
+2026/08/04 23:15:34 [notice] 16964#25880: create thread 7012
+2026/08/04 23:15:34 [notice] 19744#1468: exiting
+2026/08/04 23:15:34 [notice] 19744#1468: exiting
+2026/08/04 23:15:34 [notice] 19744#26728: exit
+2026/08/04 23:15:34 [notice] 19744#26728: exit
+2026/08/04 23:15:34 [notice] 28232#28216: worker process 19744 exited with code 0
+2026/08/04 23:15:34 [notice] 28232#28216: worker process 19744 exited with code 0
