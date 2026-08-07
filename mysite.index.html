@@ -262,7 +262,20 @@
     const textBlob = new Blob([file], { type: 'text/plain; charset=utf-8' });
     const fileUrl = URL.createObjectURL(textBlob);
     // Launch the text block inside a separate browser window or tab
-    const textWindow = window.open(fileUrl, '_blank');
+    // const textWindow = window.open(fileUrl, '_blank');
+
+    // Define custom positioning and window dimensions
+    const width = 800;
+    const height = 600;
+    const left = 100; // Distance from the left side of the screen
+    const top = 150;  // Distance from the top of the screen (not directly on top)
+
+    // Launch the text block inside a separate positioned browser window
+    const textWindow = window.open(
+      fileUrl, 
+      '_blank', 
+      `width=${width},height=${height},left=${left},top=${top},resizable=yes,scrollbars=yes`
+    );
 
  }
 
