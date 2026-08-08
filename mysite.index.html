@@ -262,7 +262,8 @@
     
     //const textBlob = new Blob([file], { type: 'text/plain; charset=utf-8' });
     //const textBlob = new Blob([file], { type: 'application/pdf' });
-    const textBlob = new Blob([file], { type: 'video/mp4' });
+    //const textBlob = new Blob([file], { type: 'video/mp4' });
+    const textBlob = new Blob([file], { type: '' });  // sniffing ->  set type: to '' or omit { type: } altogether
     const fileUrl = URL.createObjectURL(textBlob);
     
     // Launch the text block inside a separate browser window or tab
