@@ -187,13 +187,17 @@
   </div>
   
   <div id="timed-alert" class="hidden-popup">  <!-- Timed Popup -->
-    <p>This message will self-destruct in 3 seconds!</p>
+    <p id="popup-text"></p>
   </div>
 
   <!-- Timed Popup -->
    <script>  
-      function triggerTimedAlert() {
+      function triggerTimedAlert(message) {
         const popup = document.getElementById("timed-alert");
+        const popupText = document.getElementById("popup-text");
+  
+        // Inject the dynamic message into the paragraph
+        popupText.innerText = message;
         
         // Show the popup
         popup.classList.add("show-popup");
@@ -205,7 +209,7 @@
         }
 
       // Call the function to test it
-      triggerTimedAlert();
+      // triggerTimedAlert("Message To Display");
   </script>
 
 
