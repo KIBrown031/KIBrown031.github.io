@@ -778,7 +778,22 @@ document.addEventListener('contextmenu', async (e) => {
     const message = `This page was last updated on: ${lastUpdated}`;
     
     // Fire your timed alert function
-    triggerTimedAlert(message);
+    // triggerTimedAlert(message);
+    });
+
+    window.addEventListener('DOMContentLoaded', async () => {
+      try {
+        // Replace with your actual GitHub username and repository name
+        const response = await fetch('https://github.com/KIBrown031/KIBrown031.github.io');
+        const data = await response.json();
+        
+        // Extract the committer timestamp
+        const commitDate = new Date(data.commit.committer.date).toLocaleString();
+        
+        triggerTimedAlert(`Latest Deployment Commit: ${commitDate}`);
+      } catch (error) {
+        console.error("Failed to fetch Git data", error);
+      }
     });
     </script>
 
