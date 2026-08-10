@@ -190,7 +190,7 @@
     <p id="popup-text"></p>
   </div>
 
-  <!-- Timed Popup -->
+  <!-- Timed Popup   triggerTimedAlert("Message To Display");  -->
    <script>  
       function triggerTimedAlert(message) {
         const popup = document.getElementById("timed-alert");
@@ -318,6 +318,8 @@
       '_blank', 
       `width=${width},height=${height},left=${left},top=${top},resizable=yes,scrollbars=yes`
     );
+
+    triggerTimedAlert(`MIME TYPE ${mimetype}`);
 
  }
 
