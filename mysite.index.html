@@ -769,6 +769,17 @@ document.addEventListener('contextmenu', async (e) => {
       // Sets the input value
       dateInput.value = formattedDate;
     });
+
+    window.addEventListener('DOMContentLoaded', () => {
+    // document.lastModified returns a string (e.g., "10/08/2026 13:45:00")
+    const lastUpdated = document.lastModified;
+    
+    // Format it nicely for the user
+    const message = `This page was last updated on: ${lastUpdated}`;
+    
+    // Fire your timed alert function
+    triggerTimedAlert(message);
+    });
     </script>
 
 <!-- jQuery Code here-->    
