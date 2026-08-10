@@ -78,6 +78,22 @@
       label.success { background-color: #4caf50; color: white; } /* Upload OK */
       label.error { background-color: #f44336; color: white; } /* Upload failed */
 
+      .hidden-popup {
+        display: none;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #333;
+        color: #fff;
+        padding: 15px 25px;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      }
+
+      .show-popup {
+        display: block;
+}
+
     </style>
     
 </head>
@@ -170,7 +186,27 @@
     <ul id="ul-csv"></ul>  <!-- schedule.csv - list of events-->
   </div>
   
+  <div id="timed-alert" class="hidden-popup">  <!-- Timed Popup -->
+    <p>This message will self-destruct in 3 seconds!</p>
+  </div>
 
+  <!-- Timed Popup -->
+   <script>  
+      function triggerTimedAlert() {
+        const popup = document.getElementById("timed-alert");
+        
+        // Show the popup
+        popup.classList.add("show-popup");
+
+        // Hide the popup automatically after 3 seconds
+        setTimeout(() => {
+          popup.classList.remove("show-popup");
+        }, 3000);
+        }
+
+      // Call the function to test it
+      triggerTimedAlert();
+  </script>
 
 
   <!--
