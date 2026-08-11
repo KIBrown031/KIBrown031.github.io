@@ -78,7 +78,7 @@
       label.success { background-color: #4caf50; color: white; } /* Upload OK */
       label.error { background-color: #f44336; color: white; } /* Upload failed */
 
-      .hidden-popup {
+      /*.hidden-popup {
         display: none;
         position: fixed;
         top: 20px;
@@ -88,6 +88,28 @@
         padding: 15px 25px;
         border-radius: 5px;
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      }*/
+      .hidden-popup {
+        display: none;
+        position: fixed;
+        
+        /* 1. Push top-left corner to screen center */
+        top: 50%;
+        left: 50%;
+        
+        /* 2. Pull the element back by half its own dimensions */
+        transform: translate(-50%, -50%);
+        
+        /* Styling aesthetics */
+        background-color: #333;
+        color: #fff;
+        padding: 20px 30px;
+        border-radius: 8px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        font-family: sans-serif;
+        text-align: center;
+        max-width: 90%; /* Prevents clipping on narrow mobile screens */
+        z-index: 10000; /* Ensures it sits above everything, including your status bar */
       }
 
       .show-popup {
@@ -242,7 +264,7 @@
   -->
 
   <!-- fill by 'pre-commit' with git  2026-08-10 22:06:11  -->
-  <div id="last-commit-marker">GIT_COMMIT_TIMESTAMP_PLACEHOLDER 2026-08-10 22:46:05
+  <div id="last-commit-marker">GIT_COMMIT_TIMESTAMP_PLACEHOLDER 2026-08-11 14:34:26
   
   
   <!-- Upload File to server -->
