@@ -264,7 +264,7 @@
   -->
 
   <!-- fill by 'pre-commit' with git  2026-08-10 22:06:11   -->
-  <div id="last-commit-marker">GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/11/2026 15:22:15</div>
+  <div id="last-commit-marker">GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/11/2026 22:36:06</div>
   
   
   <!-- Upload File to server -->
@@ -805,7 +805,13 @@ document.addEventListener('contextmenu', async (e) => {
     triggerTimedAlert(message);
     });
 
-
+    
+    document.addEventListener("DOMContentLoaded", () => {
+        dv = document.getElementById("last-commit-marker");
+        dv.innerHTML = dv.innerHTML.match(/\d.*/)[0]
+    });
+    
+    /*
     window.addEventListener('DOMContentLoaded', async () => {
       try {
         // Replace with your actual GitHub username and repository name
@@ -820,6 +826,7 @@ document.addEventListener('contextmenu', async (e) => {
         console.error("Failed to fetch Git data", error);
       }
     });
+    */
     </script>
 
 <!-- jQuery Code here-->    
