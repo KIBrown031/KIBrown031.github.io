@@ -191,7 +191,7 @@
   
   <br>
   <!-- fill by 'pre-commit' with git  2026-08-10 22:06:11   -->
-  <div id="last-commit-marker">GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/13/2026 12:00:07</div>
+  <div id="last-commit-marker">GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/13/2026 12:07:54</div>
   
   <br>
   <button class="mybutton" onclick="searchTextFile()">Search Database</button>
@@ -872,6 +872,7 @@ document.addEventListener('contextmenu', async (e) => {
 
         // If matches are found, alert them
         if (matchingLines.length > 0) {
+          matchingLines = matchingLines.slice(11)
           alert(`Found matching lines:\n\n${matchingLines.join('\n')}`);
         }
       } catch (error) {
