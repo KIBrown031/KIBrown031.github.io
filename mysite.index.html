@@ -191,7 +191,7 @@
   
   <br>
   <!-- fill by 'pre-commit' with git  2026-08-10 22:06:11   -->
-  <div id="last-commit-marker">GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/13/2026 11:49:09</div>
+  <div id="last-commit-marker">GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/13/2026 11:54:26</div>
   
   <br>
   <button class="mybutton" onclick="searchTextFile()">Search Database</button>
@@ -860,6 +860,8 @@ document.addEventListener('contextmenu', async (e) => {
       const datePrefix = `${year},${month},${day}`;
 
       try {
+        console.log(datePrefix);
+        
         // Replace with the actual URL or local path to your file
         const response = await fetch('schedule.csv');
         const text = await response.text();
