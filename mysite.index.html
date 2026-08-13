@@ -191,7 +191,7 @@
   
   <br>
   <!-- fill by 'pre-commit' with git  2026-08-10 22:06:11   -->
-  <div id="last-commit-marker">GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/13/2026 10:43:43</div>
+  <div id="last-commit-marker">GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/13/2026 11:49:09</div>
   
   <br>
   <button class="mybutton" onclick="searchTextFile()">Search Database</button>
@@ -848,6 +848,36 @@ document.addEventListener('contextmenu', async (e) => {
     });
     */
     </script>
+
+<!-- DOM Listners: alert on today's date found in schedule.csv -->
+<script>
+    window.addEventListener('DOMContentLoaded', async () => {
+      // Generate today's date prefix: "2026,08,13"
+      const today = new Date();
+      const year = today.getFullYear();
+      const month = String(today.getMonth() + 1).padStart(2, '0');
+      const day = String(today.getDate()).padStart(2, '0');
+      const datePrefix = `${year},${month},${day}`;
+
+      try {
+        // Replace with the actual URL or local path to your file
+        const response = await fetch('schedule.csv');
+        const text = await response.text();
+        
+        // Split into lines and look for today's date
+        const lines = text.split(/\r?\n/);
+        const matchingLines = lines.filter(line => line.startsWith(datePrefix));
+
+        // If matches are found, alert them
+        if (matchingLines.length > 0) {
+          alert(`Found matching lines:\n\n${matchingLines.join('\n')}`);
+        }
+      } catch (error) {
+        console.error("Could not read file on startup:", error);
+      }
+    });
+</script>
+
 
 <!-- jQuery Code here-->    
     <script>
