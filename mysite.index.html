@@ -191,7 +191,7 @@
   
   <br>
   <!-- fill by 'pre-commit' with git  2026-08-10 22:06:11   -->
-  <div id="last-commit-marker">GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/12/2026 13:56:47</div>
+  <div id="last-commit-marker">GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/13/2026 10:40:44</div>
   
   <br>
   <button class="mybutton" onclick="searchTextFile()">Search Database</button>
@@ -778,7 +778,7 @@ document.addEventListener('contextmenu', async (e) => {
 
     </script>
 
-<!--DOM Event Listners-->
+<!--DOM & Custom Event Listners-->
     <script>
       document.addEventListener("DOMContentLoaded", function() {
       const dateInput = document.getElementById('myDatePicker');
@@ -796,6 +796,7 @@ document.addEventListener('contextmenu', async (e) => {
       dateInput.value = formattedDate;
     });
 
+    //////////////////////////////////////////////////////////////////////////////////////
 
     window.addEventListener('DOMContentLoaded', () => {
     // document.lastModified returns a string (e.g., "10/08/2026 13:45:00")
@@ -808,12 +809,28 @@ document.addEventListener('contextmenu', async (e) => {
     triggerTimedAlert(message);
     });
 
+    //////////////////////////////////////////////////////////////////////////////////////
     
     document.addEventListener("DOMContentLoaded", () => {
         dv = document.getElementById("last-commit-marker");
         dv.innerHTML = dv.innerHTML.match(/\d.*/)[0]
     });
     
+    //////////////////////////////////////////////////////////////////////////////////////
+
+    const myEvent = new CustomEvent("myUniqueEvent", {
+      detail: { message: "Hello from my event!" }
+    });
+    
+
+    window.addEventListener("myUniqueEvent", (event) => {
+      console.log(event.detail.message);
+      triggerTimedAlert(event.detail.message);
+
+    })
+
+    // window.dispatchEvent(myEvent);
+
     /*
     window.addEventListener('DOMContentLoaded', async () => {
       try {
