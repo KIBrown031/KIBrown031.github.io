@@ -77,8 +77,12 @@
       label.uploading { background-color: #2196f3; color: white; } /* During fetch */
       label.success { background-color: #4caf50; color: white; } /* Upload OK */
       label.error { background-color: #f44336; color: white; } /* Upload failed */
+    </style>
 
-      /*.hidden-popup {
+
+    <!-- timedTriggerAlert()-->
+    <style>
+            /*.hidden-popup {
         display: none;
         position: fixed;
         top: 20px;
@@ -107,7 +111,7 @@
         border-radius: 8px;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         font-family: sans-serif;
-        text-align: center;
+        text-align:left;
         max-width: 90%; /* Prevents clipping on narrow mobile screens */
         z-index: 10000; /* Ensures it sits above everything, including your status bar */
       }
@@ -191,7 +195,7 @@
   
   <br>
   <!-- fill by 'pre-commit' with git  2026-08-10 22:06:11   -->
-  <div id="last-commit-marker">GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/13/2026 15:20:05</div>
+  <div id="last-commit-marker">GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/13/2026 15:25:35</div>
   
   <br>
   <button class="mybutton" onclick="searchTextFile()">Search Database</button>
@@ -879,7 +883,7 @@ document.addEventListener('contextmenu', async (e) => {
         // If matches are found, alert them
         if (strippedLines.length > 0) {
           // alert(`Found matching lines:\n\n${strippedLines.join('\n')}`);
-          triggerTimedAlert(`Today's Calendar Events:\n${strippedLines.join('\n')}`)
+          triggerTimedAlert(`Today's Calendar Events:\n\n${strippedLines.join('\n')}`)
         }
       } catch (error) {
         console.error("Could not read file on startup:", error);
