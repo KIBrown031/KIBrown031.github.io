@@ -191,7 +191,7 @@
   
   <br>
   <!-- fill by 'pre-commit' with git  2026-08-10 22:06:11   -->
-  <div id="last-commit-marker">GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/13/2026 12:22:30</div>
+  <div id="last-commit-marker">GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/13/2026 15:20:05</div>
   
   <br>
   <button class="mybutton" onclick="searchTextFile()">Search Database</button>
@@ -879,7 +879,7 @@ document.addEventListener('contextmenu', async (e) => {
         // If matches are found, alert them
         if (strippedLines.length > 0) {
           // alert(`Found matching lines:\n\n${strippedLines.join('\n')}`);
-          triggerTimedAlert(`Found matching lines:\n\n${strippedLines.join('\n')}`)
+          triggerTimedAlert(`Today's Calendar Events:\n${strippedLines.join('\n')}`)
         }
       } catch (error) {
         console.error("Could not read file on startup:", error);
