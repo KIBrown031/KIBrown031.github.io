@@ -191,7 +191,7 @@
   
   <br>
   <!-- fill by 'pre-commit' with git  2026-08-10 22:06:11   -->
-  <div id="last-commit-marker">GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/13/2026 12:11:33</div>
+  <div id="last-commit-marker">GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/13/2026 12:17:35</div>
   
   <br>
   <button class="mybutton" onclick="searchTextFile()">Search Database</button>
@@ -870,10 +870,15 @@ document.addEventListener('contextmenu', async (e) => {
         const lines = text.split(/\r?\n/);
         const matchingLines = lines.filter(line => line.startsWith(datePrefix));
 
+        // Strip the date prefix ("2026,08,13,") from each matching line
+        const strippedLines = matchingLines.map(line => {
+          // datePrefix.length + 1 accounts for the comma after the date
+          return line.slice(datePrefix.length + 1); 
+        });
+
         // If matches are found, alert them
-        if (matchingLines.length > 0) {
-          matchingLines = matchingLines.slice(11);
-          alert(`Found matching lines:\n\n${matchingLines.join('\n')}`);
+        if (strippedLines.length > 0) {
+          alert(`Found matching lines:\n\n${strippedLines.join('\n')}`);
         }
       } catch (error) {
         console.error("Could not read file on startup:", error);
