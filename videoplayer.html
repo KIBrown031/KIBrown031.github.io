@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Local Video Selector</title>
+<style>
+  .video-player-container {
+    max-width: 640px;
+    font-family: sans-serif;
+  }
+  video {
+    width: 100%;
+    display: block;
+    background: #000;
+    margin-top: 15px;
+  }
+  .file-input-label {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  /* Hide the ugly default file input */
+  input[type="file"] {
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="video-player-container">
+  <!-- Styled file picker -->
+  <label class="file-input-label">
+    📁 Choose a Video File
+    <input type="file" id="fileSelector" accept="video/mp4,video/webm">
+  </label>
+
+  <!-- Your video player setup -->
+  <video id="myVideo" controls>
+    <source id="videoSrc" src="gnj_E_900_r480P.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+
+<script>
+  const fileSelector = document.getElementById('fileSelector');
+  const video = document.getElementById('myVideo');
+  const videoSrc = document.getElementById('videoSrc');
+
+  fileSelector.addEventListener('change', function(event) {
+    // 1. Grab the first file selected by the user
+    const file = event.target.files[0];
+    
+    // Safety check: ensure a file was actually picked
+    if (file) {
+      // 2. Generate a temporary local URL pointing to the file
+      const fileURL = URL.createObjectURL(file);
+      
+      // 3. Update the source path
+      videoSrc.src = fileURL;
+      
+      // 4. CRITICAL: Reload the video element to process the source change
+      video.load();
+      
+      // 5. Play the new video automatically
+      video.play().catch(error => {
+        console.log("Autoplay blocked or playback interrupted:", error);
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
