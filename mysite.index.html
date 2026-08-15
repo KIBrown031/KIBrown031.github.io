@@ -195,7 +195,7 @@
   
   <br>
   <!-- fill by 'pre-commit' with git  2026-08-10 22:06:11  -->
-  <div id="last-commit-marker" contenteditable>GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/14/2026 21:57:52</div>
+  <div id="last-commit-marker" contenteditable>GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/14/2026 22:08:22</div>
   
   <br>
   <button class="mybutton" onclick="searchTextFile()">Search Database</button>
@@ -217,28 +217,6 @@
   </div>
   
 
-  <video id="myVideo" controls><source src="gnj_E_900_r720P.mp4" type="video/mp4"></video>
-  <button onclick="swapVideo()">Next Video</button>
-  <script>
-        function swapVideo() {
-          const video = document.getElementById("myVideo");
-          video.src = "video2.mp4"; // Set new path
-          video.load();             // Force browser to load the new video file
-          video.play();             // Optional: autoplay the new video
-        }
-
-        /*
-        const newImg = document.createElement("img");
-
-        // Assign the source and alt text
-        newImg.src = "https://example.com";
-        newImg.alt = "A dynamic photo";
-
-        // Inject it into the HTML body
-        document.body.appendChild(newImg);
-        */
-
-  </script>
 
 
   <div id="timed-alert" class="hidden-popup">  <!-- Timed Popup -->
@@ -411,6 +389,29 @@
 
   <!-- walking man-->
   <canvas width="30" height="30"></canvas> 
+
+  <video id="myVideo" controls><source src="dummy.mp4" type="video/mp4"><source src="gnj_E_900_r720P.mp4" type="video/mp4"></video>
+  <button onclick="swapVideo()">Next Video</button>
+  <script>
+        function swapVideo() {
+          const video = document.getElementById("myVideo");
+          video.src = "video2.mp4"; // Set new path
+          video.load();             // Force browser to load the new video file
+          video.play();             // Optional: autoplay the new video
+        }
+
+        /*
+        const newImg = document.createElement("img");
+
+        // Assign the source and alt text
+        newImg.src = "https://example.com";
+        newImg.alt = "A dynamic photo";
+
+        // Inject it into the HTML body
+        document.body.appendChild(newImg);
+        */
+
+  </script>
 
 
   <!--<ul id="result"></ul>-->
