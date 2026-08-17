@@ -195,7 +195,7 @@
   
   <br>
   <!-- fill by 'pre-commit' with git  2026-08-10 22:06:11  -->
-  <div id="last-commit-marker" contenteditable>GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/17/2026 17:00:35</div>
+  <div id="last-commit-marker" contenteditable>GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/17/2026 17:13:01</div>
   
   <br>
   <button class="mybutton" onclick="searchTextFile()">Search Database</button>
@@ -228,6 +228,9 @@
           video.loop = true;
           video.load();             // Force browser to load the new video file
           video.play();             // Optional: autoplay the new video
+          video.addEventListener('loadedmetadata', () => {
+              video.currentTime = 90; 
+        });
           
         }
 
