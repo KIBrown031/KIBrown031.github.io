@@ -195,7 +195,7 @@
   
   <br>
   <!-- fill by 'pre-commit' with git  2026-08-10 22:06:11  -->
-  <div id="last-commit-marker" contenteditable>GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/15/2026 21:48:39</div>
+  <div id="last-commit-marker" contenteditable>GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/17/2026 17:00:35</div>
   
   <br>
   <button class="mybutton" onclick="searchTextFile()">Search Database</button>
@@ -218,15 +218,17 @@
   
 
    <!-- HTML5 Video -->
-  <video id="myVideo" controls ><source src="dummy.mp4" type="video/mp4"></video>
+  <video id="myVideo" autoplay controls ><source src="dummy.mp4" type="video/mp4"></video>
   <button onclick="swapVideo()">Next Video</button>
   <button onclick="document.getElementById('myVideo').src='https://www.jw.org/finder?srcid=jwlshare&wtlocale=E&lank=pub-jwbcov24_9_VIDEO';">First Video</button>
   <script>
         function swapVideo() {
           const video = document.getElementById("myVideo");
           video.src = "gnj_E_900_r480P.mp4"; // Set new path
+          video.loop = true;
           video.load();             // Force browser to load the new video file
           video.play();             // Optional: autoplay the new video
+          
         }
 
         /*
