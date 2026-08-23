@@ -195,7 +195,7 @@
   
   <br>
   <!-- fill by 'pre-commit' with git  2026-08-10 22:06:11  -->
-  <div id="last-commit-marker" contenteditable>GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/23/2026 08:30:20</div>
+  <div id="last-commit-marker" contenteditable>GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/23/2026 08:34:34</div>
   
   <br>
   <button class="mybutton" onclick="document.querySelector('#ul-csv').innerHTML = '';searchTextFile();">Search Database</button>
@@ -583,6 +583,14 @@
         const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
         async function loadSchedule() {
+
+            const ulCsv = document.getElementById('ul-csv');
+            
+            if ( ulCsv.hasChildNodes())  {  // clear list and return 
+              ulCsv.replaceChildren(); return; 
+            }
+                         
+                
             // document.getElementById('csvFileInput').addEventListener('change', (event) => { });
             const today = new Date();
             today.setHours(0, 0, 0, 0);  
@@ -600,12 +608,7 @@
             delimiter: ",",
             complete: async function(results) {
                 // const query = document.getElementById('searchQuery').value.toLowerCase();
-                const ulCsv = document.getElementById('ul-csv');
-                
-                if ( ulCsv.hasChildNodes())  {  // clear list and return 
-                  ulCsv.replaceChildren(); return; 
-                }
-                
+
                 console.log("Parsed JSON Data:", results.data);
                 console.log("Errors encountered:", results.errors);
 
