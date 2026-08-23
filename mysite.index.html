@@ -195,7 +195,7 @@
   
   <br>
   <!-- fill by 'pre-commit' with git  2026-08-10 22:06:11  -->
-  <div id="last-commit-marker" contenteditable>GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/23/2026 07:36:23</div>
+  <div id="last-commit-marker" contenteditable>GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/23/2026 07:52:31</div>
   
   <br>
   <button class="mybutton" onclick="searchTextFile()">Search Database</button>
@@ -463,8 +463,7 @@
       onload="console.log('gps.js is ready')" 
       onerror="alert('Failed to load gps.js')">
     </script>
-    
-
+  
   <!-- Utility Functions -->
     <script>
         // dow('yyyy-mm-dd')  returns the day of the week of a yyyy-mm-dd date string
@@ -472,7 +471,6 @@
 
         const dowYMD = (year, month, day) => { const DOW = [ "SUN","MON","TUE","WED","THU","FRI","SAT" ]; return DOW[ new Date(year, month, day).getDay() ] }; 
     </script>
-
 
   <!-- sortList() -->
     <script>
@@ -493,7 +491,6 @@
       }
     </script>
   
-
   <!-- document ready -->
    <script>
     // Shorthand for $( document ).ready()
@@ -579,7 +576,6 @@
             }
         })
     </script>
-
 
 <!-- schedule.csv search-->
     <script>
@@ -719,62 +715,6 @@
 
       
       }
-    </script>
-
-<!--Capture right-click on the entire page then call: emptyCacheHardRelaod()-->
-    <script>
-function emptyCacheHardRelaod() {
-        // Appends a unique timestamp to force the server to provide fresh assets
-        const currentUrl = new URL(window.location.href);
-        currentUrl.searchParams.set('reloadTime', Date.now().toString());
-        window.location.href = currentUrl.toString();
-      }
-      
-// Listen for the right-click event on the entire page
-window.addEventListener('contextmenu', (event) => {
-
-        // temporary disable
-        console.log("window.addEventListener('contextmenu', (event) => {  1. DISABLED  }" );
-        return;
-
-        // 1. Prevent the default browser context menu from appearing
-        event.preventDefault(); 
-        
-        // 2. Add your custom right-click logic here
-        console.log('Right-click captured!');
-        console.log(`X coordinate: ${event.clientX}, Y coordinate: ${event.clientY}`);
-        emptyCacheHardRelaod()
-        });
-
-document.addEventListener('contextmenu', async (e) => {
-        // temporary disable
-        console.log("window.addEventListener('contextmenu', (event) => { 2. DISABLED  }" );
-        return;
-
- 
-        // Optional: Stop the default browser context menu
-        e.preventDefault();
-
-        // Check if Web Share API is supported
-        if (navigator.share) {
-          try {
-            await navigator.share({
-              title: 'Check this out',
-              text: 'Here is some cool content from the context menu!',
-              url: window.location.href,
-            });
-            console.log('Shared successfully');
-          } catch (err) {
-            if (err.name !== 'AbortError') {
-              console.error('Error sharing:', err);
-            }
-          }
-        } else {
-          console.log('Web Share API is not supported on this browser/device.');
-          // Insert fallback code for custom menu display here
-        }
-      });
-
     </script>
 
 <!--Full Screen Toogle-->
@@ -924,7 +864,6 @@ document.addEventListener('contextmenu', async (e) => {
     });
 </script>
 
-
 <!-- jQuery Code here-->    
     <script>
       // $(document).ready(function() { console.log('jQuery We Be Ready: MYSITE.INDEX !!!') } )
@@ -995,6 +934,63 @@ document.addEventListener('contextmenu', async (e) => {
     return mimeTypes[extension] || 'application/octet-stream';
 }
  </script>
+
+<!-- Capture right-click on the entire page then call: emptyCacheHardRelaod()  (3) function calls -->
+    <script>
+function emptyCacheHardRelaod() {
+        // Appends a unique timestamp to force the server to provide fresh assets
+        const currentUrl = new URL(window.location.href);
+        currentUrl.searchParams.set('reloadTime', Date.now().toString());
+        window.location.href = currentUrl.toString();
+      }
+      
+// Listen for the right-click event on the entire page
+window.addEventListener('contextmenu', (event) => {
+
+        // temporary disable
+        console.log("window.addEventListener('contextmenu', (event) => {  1. DISABLED  }" );
+        return;
+
+        // 1. Prevent the default browser context menu from appearing
+        event.preventDefault(); 
+        
+        // 2. Add your custom right-click logic here
+        console.log('Right-click captured!');
+        console.log(`X coordinate: ${event.clientX}, Y coordinate: ${event.clientY}`);
+        emptyCacheHardRelaod()
+        });
+
+document.addEventListener('contextmenu', async (e) => {
+        // temporary disable
+        console.log("window.addEventListener('contextmenu', (event) => { 2. DISABLED  }" );
+        return;
+
+ 
+        // Optional: Stop the default browser context menu
+        e.preventDefault();
+
+        // Check if Web Share API is supported
+        if (navigator.share) {
+          try {
+            await navigator.share({
+              title: 'Check this out',
+              text: 'Here is some cool content from the context menu!',
+              url: window.location.href,
+            });
+            console.log('Shared successfully');
+          } catch (err) {
+            if (err.name !== 'AbortError') {
+              console.error('Error sharing:', err);
+            }
+          }
+        } else {
+          console.log('Web Share API is not supported on this browser/device.');
+          // Insert fallback code for custom menu display here
+        }
+      });
+
+    </script>
+
 <!-- main list of MANY URLs from initial project -->
   <div class="div-urls" id="id-urls">  
     <br><hr><br>
@@ -1044,8 +1040,8 @@ document.addEventListener('contextmenu', async (e) => {
       <li><a href="https://share.google/aimode/GtuaigdXRqLliT3Zn" title="AI: HOF & Closures" data-value="HOF & Closures">AI: HOF & Closures</a></li><br>
       <li><a href="https://share.google/aimode/dKtJRP2Sis3F7kpQt" title="AI: Javascript Calculators" data-value="Javascript Calculators">AI: Javascript Calculators</a></li><br>
       <li><a href="https://share.google/aimode/VXmNulyAfFe6j6KYY" title="AI: HTML5 Video" data-value="HTML5 Video">AI: HTML5 Video</a></li><br>
-      <li><a href="https://share.google/aimode/0uarLRVz5er5IAci1" title="AI: Trim Video" data-value="Trim Video">AI: Trim Video</a></li><br> <!-- ffmpeg -ss 00:01:30 -to 00:02:15 -i input.mp4 -c copy output.mp4 -->
-
+      <li><a href="https://share.google/aimode/0uarLRVz5er5IAci1" title="AI: Trim Video" data-value="Trim Video">AI: Trim Video</a></li><br>
+      <!-- ffmpeg -ss 00:01:30 -to 00:02:15 -i input.mp4 -c copy output.mp4 -->
       <li><a href="#" onclick="event.preventDefault();" id="tt" title="DB Calls junk.csv" data-value="">DB Calls junk.csv</a></li><br>
       <li><a href="#" onclick="event.preventDefault();" id="fn" title="Useful Functions" data-value="">Useful Functions</a></li><br>
 
