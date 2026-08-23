@@ -195,15 +195,15 @@
   
   <br>
   <!-- fill by 'pre-commit' with git  2026-08-10 22:06:11  -->
-  <div id="last-commit-marker" contenteditable>GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/23/2026 07:52:31</div>
+  <div id="last-commit-marker" contenteditable>GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/23/2026 08:08:42</div>
   
   <br>
-  <button class="mybutton" onclick="searchTextFile()">Search Database</button>
+  <button class="mybutton" onclick="document.querySelector('ul-csv').innerHTML = '';searchTextFile();">Search Database</button>
   <input type="text" id="searchQuery" name="SearchText" placeholder="Type a keyword...">
   <button id="fullscreenBtn">Full Screen</button>
    
   <br>
-  <button class="mybutton" onclick="displayURLs()">Search URLs</button>
+  <button class="mybutton" onclick="document.querySelector('ul-csv').innerHTML = '';displayURLs();">Search URLs</button>
   <input type="text" id="searchQueryURL" name="SearchURLs" placeholder="Type part of URL...">
   
   <br>
