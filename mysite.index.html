@@ -195,7 +195,7 @@
   
   <br>
   <!-- fill by 'pre-commit' with git  2026-08-10 22:06:11  -->
-  <div id="last-commit-marker" contenteditable>GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/23/2026 08:56:29</div>
+  <div id="last-commit-marker" contenteditable>GIT_COMMIT_TIMESTAMP_PLACEHOLDER 08/23/2026 22:14:39</div>
   
   <br>
   <button class="mybutton" onclick="document.querySelector('#ul-csv').innerHTML = '';searchTextFile();">Search Database</button>
@@ -586,11 +586,12 @@
 
             const ulCsv = document.getElementById('ul-csv');
             
+            console.log("Schedule I");
             if ( ulCsv.firstChild )  {  // clear list and return 
               ulCsv.innerHTML = ''; 
               return; 
             }
-                         
+            console.log("Schedule II");           
                 
             // document.getElementById('csvFileInput').addEventListener('change', (event) => { });
             const today = new Date();
