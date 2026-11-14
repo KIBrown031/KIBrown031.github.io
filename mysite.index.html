@@ -195,7 +195,7 @@
   
   <br>
   <!-- fill by 'pre-commit' with git  2026-08-10 22:06:11  -->
-  <div id="last-commit-marker" contenteditable>GIT_COMMIT_TIMESTAMP_PLACEHOLDER 11/13/2026 21:59:33</div>
+  <div id="last-commit-marker" contenteditable>GIT_COMMIT_TIMESTAMP_PLACEHOLDER 11/13/2026 22:52:38</div>
   
   <br>
   <button class="mybutton" onclick="document.querySelector('#ul-csv').innerHTML = '';searchTextFile();">Search Database</button>
@@ -1015,9 +1015,16 @@ document.addEventListener('contextmenu', async (e) => {
       <li><a href="https://10.10.1.222:9090" title="Cockpit:Arch" data-value="Cockpit:Arch" >Cockpit:Arch</a></li><br>
       <li><a href="http://10.10.1.222:8081" title="SterlingPDF:Arch" data-value="SterlingPDF:Arch" >SterlingPDF:Arch</a></li><br>
 
-      <li><a href="http://localhost" title="LOCALHOST via NGINX" data-value="Test NGINX:80" >LOCALHOST via NGINX</a></li><br>
+      <!-- using NGINX Docker Server -->
+      <li><a href="http://localhost:8084/videoplayer.html" title="VideoPlayer" data-value="VideoPlayer" >VideoPlayer</a></li><br>
+      <li><a href="http://localhost:8084/notes.html" title="NoteTaker" data-value="NoteTaker" >NoteTaker</a></li><br>
+      <!-- using NGINX Docker Server -->
+
+      <!-- using cmdline nginx.exe -->
+       <li><a href="http://localhost" title="LOCALHOST via NGINX" data-value="Test NGINX:80" >LOCALHOST via NGINX</a></li><br>
       <li><a href="http://localhost:8080" title="LOCALHOST:8080" data-value="Test NGINX:8080" >LOCALHOST:8080 via NGINX</a></li><br>
       <li><a href="https://localhost:8000" title="LOCALHOST:8000 ssl" data-value="Test NGINX:8000 ssl" >LOCALHOST via NGNIX ssl</a></li><br>
+      <!-- using cmdline nginx.exe -->
 
       <li><a href="http://192.168.1.252" title="ET-2988 Printer" data-value="ET-2988 Printer  XDN3047167" >ET-2988 Printer</a></li><br>
       <li><a href="http://192.168.1.221" title="HP-7868 Printer" data-value="HP-7868 Printer" >HP-7868 Printer</a></li><br>
